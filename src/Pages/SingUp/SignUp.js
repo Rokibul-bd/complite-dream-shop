@@ -14,7 +14,7 @@ const SignUp = () => {
     const handleSignupFrom = data => {
         setSignUpError('')
         const { email, password, name, isSeller } = data
-        console.log(isSeller)
+        console.log(data)
         registerUser(email, password)
             .then(creadentialUSer => {
                 console.log(creadentialUSer)
@@ -27,7 +27,7 @@ const SignUp = () => {
                         navigate('/')
                         saveUser(email, name, isSeller)
                     })
-                    .catch(err => console.error(err))
+                    .catch(err => setSignUpError(err))
             })
             .catch(err => {
                 console.error(err)
@@ -80,14 +80,14 @@ const SignUp = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" {...register('email', { required: "Email is required" })} className="input input-bordered" placeholder='email' />
+                    <input type="email" {...register('email')} className="input input-bordered" placeholder='email' />
                     {errors.email && <p role="alert">{errors.email?.message}</p>}
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input type="password" {...register('password', { required: true, maxLength: 6 })} placeholder="password" className="input input-bordered" />
+                    <input type="password" {...register('password')} placeholder="password" className="input input-bordered" />
                     <label className="label">
                         <p className="label-text-alt text-sm">Already you have an account please <Link className='link-hover text-yellow-600' to="/login">Log in</Link>  </p>
                     </label>
@@ -102,7 +102,7 @@ const SignUp = () => {
                     <p>{signUpError}</p>
                 </label>
                 <div className="form-control mt-6">
-                    <button className="btn btn-primary">Sign Up</button>
+                    <button type='submit' className="btn btn-primary">Sign Up</button>
                 </div>
                 <div className="form-control">
                     <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>

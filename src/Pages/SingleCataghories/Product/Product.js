@@ -1,10 +1,13 @@
 import React from 'react';
+import { useContext } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import { AuthContext } from '../../context/AuthProvider';
 
 
 
 const Product = ({ phone, setBooking }) => {
     const { name, address, resellPrice, orginalPrice, img, ram, rom, stutas } = phone
+    const { user } = useContext(AuthContext)
     return (
         <div className="card md:card-side bg-base-100 shadow-xl">
             <img className='w-96' src={img} alt="Movie" />
@@ -20,7 +23,10 @@ const Product = ({ phone, setBooking }) => {
                         stutas && <FaCheck className='text-green-600 inline-block'></FaCheck>
                     }</p>
                     <div className="flex gap-1">
-                        <label htmlFor='bookingModal' onClick={() => setBooking(phone)} className="btn btn-primary">Booking Now</label>
+                        {
+                            user ? <label aria-disabled htmlFor='bookingModal' onClick={() => setBooking(phone)} className="btn btn-primary">Booking Now</label> : <div><button className='btn btn-primary' disabled>Booking</button> please log in for Booking</div>
+                        }
+
                     </div>
                 </div>
             </div>

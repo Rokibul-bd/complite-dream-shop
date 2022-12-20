@@ -14,7 +14,6 @@ const Bookings = () => {
             return data
         }
     })
-    console.log(bookings)
     return (
         <div className='my-16 px-4'>
             <p className='text-2xl font-semibold mb-8'>You have total booking {bookings.length}</p>

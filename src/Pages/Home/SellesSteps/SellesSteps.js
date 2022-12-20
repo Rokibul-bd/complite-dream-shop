@@ -12,10 +12,10 @@ const SellesSteps = () => {
     }, [])
 
     return (
-        <div>
+        <div className='container mx-auto'>
             <h3 className='text-center text-2xl font-semibold'>When you buy a phones follow this three steps</h3>
             <p className='text-center text-xl mt-5'>Do want to buy phone . you will be try your best the follow three steps.</p>
-            <div className='grid md:grid-cols-3 my-56 gap-4 justify-center'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 my-56 gap-4 justify-center'>
                 {
                     saleses.map(sales => <Salse key={sales._id} sales={sales}></Salse>)
                 }

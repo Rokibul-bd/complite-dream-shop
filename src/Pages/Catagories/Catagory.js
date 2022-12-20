@@ -9,7 +9,7 @@ const Catagory = ({ service }) => {
                 <div className='w-1/2 md:w-full mx-auto'>
                     <img className='object-cover max-w-full' src={logo} alt="" />
                 </div>
-                <div className="card-body">
+                <div className="card-body justify-center">
                     <h2 className="card-title">{catagoray}</h2>
                     <div className="card-actions">
                         <Link to={`services/${_id}`} className="btn btn-primary">See ALL Product</Link>

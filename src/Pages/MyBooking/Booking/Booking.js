@@ -2,6 +2,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import { FaCheck, FaTrashAlt } from 'react-icons/fa';
 
+
 const Booking = ({ booking, refetch }) => {
     const { _id } = booking
     const { name, orginalPrice, resellPrice, img, stutas, address } = booking.booking
@@ -48,6 +49,7 @@ const Booking = ({ booking, refetch }) => {
             </td>
             <th>
                 <button onClick={() => handleBookingDelete(_id)} className="mt-2"><FaTrashAlt className='ml-2 text-2xl'></FaTrashAlt> </button>
+
             </th>
         </tr>
     );

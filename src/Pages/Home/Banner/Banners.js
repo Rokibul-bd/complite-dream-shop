@@ -12,7 +12,7 @@ const Banners = () => {
             .catch(err => console.log(err))
     }, [])
     return (
-        <div>
+        <div className='container mx-auto'>
             <div className="carousel w-full py-12">
                 {
                     sliders.map((slider, index) => <Banner key={index} slider={slider}></Banner>)

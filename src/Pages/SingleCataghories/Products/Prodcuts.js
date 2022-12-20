@@ -10,13 +10,15 @@ const Prodcuts = () => {
     const [booking, setBooking] = useState(null)
     useTitle('catagories')
     return (
-        <div className='grid lg:grid-cols-2 gap-4 my-36'>
-            {
-                phones.map((phone, index) => <Product setBooking={setBooking} key={index} phone={phone} ></Product>)
-            }
-            {
-                booking && <BookingModal setBooking={setBooking} booking={booking}></BookingModal>
-            }
+        <div className='container mx-auto'>
+            <div className='grid lg:grid-cols-2 gap-4 my-36'>
+                {
+                    phones.map((phone, index) => <Product setBooking={setBooking} key={index} phone={phone} ></Product>)
+                }
+                {
+                    booking && <BookingModal setBooking={setBooking} booking={booking}></BookingModal>
+                }
+            </div>
         </div>
     );
 };
